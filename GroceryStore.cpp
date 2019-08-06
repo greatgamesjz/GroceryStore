@@ -6,7 +6,7 @@
 #include <mutex>
 #include <functional>
 #include <memory>
-#define test
+//#define test //uncomment to enable testmode
 
 using namespace std;
 struct order
