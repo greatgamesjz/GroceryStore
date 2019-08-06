@@ -94,7 +94,7 @@ public:
 		chrono::seconds delay(timeBetweenAddingNewItemToShop); // 10 orders per minute
 		while (incomeListIterator < (int)income_.length()) // reading whole income string
 		{
-			this_thread::sleep_for(delay); 
+			
 			m_bNewIncomeIsReady = false; //sleeping 3rd thread
 #ifdef test
 			cout << "Added product: " << income_[incomeListIterator] << endl;
@@ -108,6 +108,7 @@ public:
 
 			m_bNewIncomeIsReady = true; 
 			steeringCon_var.notify_one(); //waking up 3rd thread
+			this_thread::sleep_for(delay);
 		}
 		
 	}
